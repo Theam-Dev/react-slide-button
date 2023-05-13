@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import SlideButton from 'react-slide-button';
+import React from "react";
 
 function App() {
+  const [reset, setReset] = React.useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>React using react-slide-button</h2>
+      <SlideButton
+        mainText="slide me"
+        overlayText="S I K E"
+        onSlideDone={function () {
+          console.log("Done!");
+        }}
+        reset={reset}
+      />
+
+      <button onClick={() => {
+        setReset(counter => counter + 1)
+      }}
+      >
+        Reset
+      </button>
     </div>
   );
 }
